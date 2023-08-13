@@ -1,0 +1,40 @@
+#!/usr/bin/php
+<?php
+require 'config/Constants.php';
+
+require 'bootstrap/autoload.php';
+
+$command = isset($argv[1]) ? $argv[1] : '';
+
+switch ($command) {
+    case 'run':
+        echo ("Starting server on http://localhost \n");
+        passthru('php -S 0.0.0.0:80 -t public');
+        exit();
+        break;
+    case 'make:controller':
+        if (isset($argv[2])) {
+            $controllerName = ucfirst($argv[2]);
+            $controllerPath = 'app/http/controllers/' . $controllerName . '.php';
+
+            $template = <<<PHP
+<?php
+
+namespace App\Http\Controllers;
+
+class $controllerName e
+{
+    // Controller kodları buraya eklenecek
+}
+PHP;
+
+            file_put_contents($controllerPath, $template);
+            echo "Controller '$controllerName' created successfully.\n";
+        } else {
+            echo "Please provide a controller name.\n";
+        }
+        exit();
+        break;
+    default:
+        echo "Usage: swallow [command]\n\nAvailable commands:\n run\n make:controller [controller_name]\n";
+}

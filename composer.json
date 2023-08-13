@@ -1,0 +1,23 @@
+{
+    "name": "swallowphp/swallowphp",
+    "description": "Swallow PHP Framework",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\Core\\": "app/core/",
+            "Config\\": "config/",
+            "App\\Models\\": "app/models/",
+            "App\\Exceptions\\": "app/exceptions/",
+            "App\\Http\\Controllers\\": "app/http/controllers",
+            "App\\Http\\Middlewares\\": "app/http/middlewares",
+            "App\\Services\\Cache\\": "app/services/cache"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fatih Zengin",
+            "email": "fatihzengin654@outlook.com"
+        }
+    ],
+    "require": {}
+}
